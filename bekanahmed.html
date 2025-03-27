@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bekan Ahmed | Sports Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --football: #2980b9;
+            --basketball: #e67e22;
+            --tennis: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0 100px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin: 20px 0 10px;
+            font-weight: 700;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        /* About */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--secondary);
+            border-radius: 10px;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        
+        .about-image:hover::before {
+            top: -15px;
+            left: -15px;
+        }
+        
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+        
+        .skill-card.football::before {
+            background-color: var(--football);
+        }
+        
+        .skill-card.basketball::before {
+            background-color: var(--basketball);
+        }
+        
+        .skill-card.tennis::before {
+            background-color: var(--tennis);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .football .skill-icon {
+            color: var(--football);
+        }
+        
+        .basketball .skill-icon {
+            color: var(--basketball);
+        }
+        
+        .tennis .skill-icon {
+            color: var(--tennis);
+        }
+        
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .skill-card p {
+            color: #666;
+        }
+        
+        /* Projects/Experience */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: var(--secondary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 30px);
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 30px);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-content {
+            transform: scale(1.03);
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .timeline-date {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Contact */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-content a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-content a:hover {
+            color: var(--accent);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-top: 30px;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 80px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Bekan Ahmed" class="profile-img">
+            <h1 class="fade-in">Bekan Ahmed</h1>
+            <p class="title fade-in delay-1">Sports Enthusiast & Athlete</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Bekan<span>Ahmed</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Passionate Athlete with a Love for Sports</h3>
+                    <p>Hello! I'm Bekan Ahmed, a dedicated sports enthusiast with expertise in football, basketball, and tennis. My journey in sports began at a young age, and I've since developed a deep passion for competition, teamwork, and physical excellence.</p>
+                    <p>With years of experience across multiple disciplines, I bring a unique perspective to athletic performance, combining technical skills with strategic thinking and mental toughness.</p>
+                    <p>When I'm not on the field or court, I enjoy analyzing games, coaching young athletes, and staying updated with the latest sports science developments.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1605&q=80" alt="Bekan Ahmed in action">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card football fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3>Football</h3>
+                    <p>Expert in ball control, strategic playmaking, and team coordination. Specialized in midfield positioning and precise passing. Trained in both offensive and defensive tactics.</p>
+                </div>
+                
+                <div class="skill-card basketball fade-in delay-1">
+                    <div class="skill-icon">
+                        <i class="fas fa-basketball-ball"></i>
+                    </div>
+                    <h3>Basketball</h3>
+                    <p>Skilled in shooting, dribbling, and defensive maneuvers. Excellent at three-point shots and fast breaks. Strong understanding of court positioning and team dynamics.</p>
+                </div>
+                
+                <div class="skill-card tennis fade-in delay-2">
+                    <div class="skill-icon">
+                        <i class="fas fa-table-tennis"></i>
+                    </div>
+                    <h3>Tennis</h3>
+                    <p>Proficient in both singles and doubles play. Powerful serve and precise groundstrokes. Specialized in strategic point construction and mental game management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience & Achievements</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018 - Present</div>
+                        <h3>Professional Football Player</h3>
+                        <p>Played for several competitive teams, contributing to multiple championship wins. Recognized for leadership on and off the field.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in delay-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2016 - 2018</div>
+                        <h3>Basketball Team Captain</h3>
+                        <p>Led my university team to two consecutive regional championships. Developed training programs that improved team performance by 30%.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in delay-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2014 - 2016</div>
+                        <h3>Tennis Coach</h3>
+                        <p>Trained young athletes in fundamental techniques and competitive strategies. Several students went on to win junior tournaments.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in delay-3">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2012 - 2014</div>
+                        <h3>Multi-Sport Athlete</h3>
+                        <p>Competed at high levels in all three sports simultaneously, developing exceptional cross-sport skills and adaptability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Sports City, Athletic Avenue 123</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>bekan.ahmed@sportspro.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (234) 567-8900</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in delay-1">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2023 Bekan Ahmed. All rights reserved.</p>
+            <p>Designed with passion for sports and excellence.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // Form submission
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                form.reset();
+            });
+        }
+    </script>
+</body>
+</html>
